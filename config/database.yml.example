@@ -81,4 +81,4 @@ production:
   <<: *default
   database: meru_api_production
   username: meru_api
-  password: <%= ENV["MERU_API_DATABASE_PASSWORD"] %>
+  password: <%= Rails.application.credentials.meru_api[:database_password] %>
