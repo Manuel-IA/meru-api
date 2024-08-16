@@ -16,24 +16,24 @@ module Api::V1
   
     # POST /products
     def create
-      @product = Product.new(product_params)
-  
-      if @product.save
-        render json: @product, status: :created
+      product = Product.new(product_params)
+      if product.save
+        render json: product, status: :created
       else
-        render json: @product.errors, status: :unprocessable_entity
+        render json: { errors: product.errors.full_messages }, status: :unprocessable_entity
       end
     end
   
     # PATCH/PUT /products/1
     def update
-      if @product.update(product_params)
-        render json: @product
+      product = Product.find(params[:id])
+      if product.update(product_params)
+        render json: product, status: :ok
       else
-        render json: @product.errors, status: :unprocessable_entity
+        render json: { errors: product.errors.full_messages }, status: :unprocessable_entity
       end
     end
-  
+
     # DELETE /products/1
     def destroy
       @product.destroy!

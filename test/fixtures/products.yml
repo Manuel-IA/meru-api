@@ -1,13 +1,5 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
+product_one:
+  name: "Sample Product"
   price: 9.99
-  description: MyText
-  approximate_dimensions: MyString
-
-two:
-  name: MyString
-  price: 9.99
-  description: MyText
-  approximate_dimensions: MyString
+  description: "This is a sample product."
+  approximate_dimensions: "10cm x 20cm x 30cm"
