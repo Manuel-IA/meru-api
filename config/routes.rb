@@ -2,8 +2,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
-  # Only json requests
-  resources :products, defaults: { format: :json }
+  scope module: 'api' do
+    namespace :v1 do
+      # Only json requests
+      resources :products, defaults: { format: :json }
+    end
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
